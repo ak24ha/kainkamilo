@@ -1,24 +1,49 @@
-# Bahasa Indonesia Support
+# Kain Kita
 
-bisa pakai bahasa indonesia?
+Toko pakaian online: katalog produk, keranjang, checkout, dan pesanan masuk ke WhatsApp.
 
-This project was built with [Lovable](https://lovable.dev).
+Dibangun dengan [Lovable](https://lovable.dev).
 
-## Build with Lovable
+## Alur pesanan
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ef89efa3-54a8-46c0-8431-f3f0677b171b).
+1. Pembeli memilih produk, ukuran, dan jumlah.
+2. Barang masuk ke keranjang.
+3. Checkout mengisi nama, alamat, dan metode pembayaran.
+4. Tombol "Pesan via WhatsApp" membuka WhatsApp ke nomor toko dengan isi pesanan lengkap.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Struktur penting
+
+| File | Isi |
+| --- | --- |
+| `src/routes/index.tsx` | Beranda dan daftar produk |
+| `src/routes/produk.$id.tsx` | Halaman detail satu produk |
+| `src/routes/keranjang.tsx` | Halaman keranjang |
+| `src/routes/checkout.tsx` | Form checkout dan tombol WhatsApp |
+| `src/lib/store.ts` | Data produk (nama, harga, ukuran, foto) |
+| `src/lib/cart.tsx` | State keranjang (tambah, hapus, total) |
+| `src/components/SiteHeader.tsx` | Navigasi dan jumlah item keranjang |
+
+Ganti nomor WhatsApp dan data produk di `src/lib/store.ts`.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Butuh Node.js dan npm — [install dengan nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
+git clone <url-repository-anda>
+cd <nama-repository>
 npm i
 npm run dev
 ```
+
+Perintah lain:
+
+```sh
+npm run test     # jalankan tes
+npm run lint     # cek gaya kode
+npm run build    # build produksi
+```
+
+## Sinkron dengan Lovable
+
+Perubahan yang di-push ke `main` otomatis masuk ke Lovable, dan sebaliknya. Lanjutkan develop di [editor Lovable](https://lovable.dev/projects/ef89efa3-54a8-46c0-8431-f3f0677b171b).
